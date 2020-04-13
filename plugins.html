@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Plugins | Podlove Web Player 5</title>
+    <meta name="description" content="The fast, flexible and responsive podcast player powered by podlove meta data.">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/podlove-web-player/favicon.png">
+  <script type="text/javascript" src="embed.js"></script>
+  <script type="text/javascript" src="extensions/external-events.js"></script>
+    
+    <link rel="preload" href="/podlove-web-player/assets/css/0.styles.1a5128c6.css" as="style"><link rel="preload" href="/podlove-web-player/assets/js/app.291544a6.js" as="script"><link rel="preload" href="/podlove-web-player/assets/js/18.cdeb8c09.js" as="script"><link rel="prefetch" href="/podlove-web-player/assets/js/10.9368174b.js"><link rel="prefetch" href="/podlove-web-player/assets/js/11.6814f913.js"><link rel="prefetch" href="/podlove-web-player/assets/js/12.c73dc97b.js"><link rel="prefetch" href="/podlove-web-player/assets/js/13.79064ce7.js"><link rel="prefetch" href="/podlove-web-player/assets/js/14.08242246.js"><link rel="prefetch" href="/podlove-web-player/assets/js/15.c5e6482e.js"><link rel="prefetch" href="/podlove-web-player/assets/js/16.772bc39d.js"><link rel="prefetch" href="/podlove-web-player/assets/js/17.67827df5.js"><link rel="prefetch" href="/podlove-web-player/assets/js/19.5b3c288d.js"><link rel="prefetch" href="/podlove-web-player/assets/js/2.9c71077a.js"><link rel="prefetch" href="/podlove-web-player/assets/js/20.e1dcc4eb.js"><link rel="prefetch" href="/podlove-web-player/assets/js/21.556dbd5f.js"><link rel="prefetch" href="/podlove-web-player/assets/js/3.276eed2b.js"><link rel="prefetch" href="/podlove-web-player/assets/js/4.bf79e486.js"><link rel="prefetch" href="/podlove-web-player/assets/js/5.75022745.js"><link rel="prefetch" href="/podlove-web-player/assets/js/6.f345ca2e.js"><link rel="prefetch" href="/podlove-web-player/assets/js/7.cd537418.js"><link rel="prefetch" href="/podlove-web-player/assets/js/8.a6c68983.js"><link rel="prefetch" href="/podlove-web-player/assets/js/9.25b726de.js">
+    <link rel="stylesheet" href="/podlove-web-player/assets/css/0.styles.1a5128c6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="wrapper"><div class="sidebar"><div class="sidebar-mobile"><button class="button button-clear"><img src="/podlove-web-player/assets/img/menu.407adf99.svg" class="icon"></button></div> <div class="search"><input type="text" placeholder="Type to search" value="" class="search-input"></div> <div class="sidebar-main"><p class="no-results">
+  No results
+</p></div></div> <main class="layout"><div class="inner"><div class="content__default"><h1 id="plugins">Plugins</h1> <h2 id="external-event-handling">External Event Handling</h2> <p>External event handling gives you the ability to control the player from other dom elements.</p> <h3 id="installation">Installation</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">&quot;extensions/external-events.js&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">&quot;player-id&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+    <span class="token function">podlovePlayer</span><span class="token punctuation">(</span><span class="token string">'#player-id'</span><span class="token punctuation">,</span> <span class="token string">'path/to/config'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token function">registerExternalEvents</span><span class="token punctuation">(</span><span class="token string">'player-id'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="usage">Usage</h3> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token operator">&lt;</span>a
+    href<span class="token operator">=</span><span class="token string">&quot;javascript:void(0)&quot;</span>
+    rel<span class="token operator">=</span><span class="token string">&quot;podlove-web-player&quot;</span> <span class="token comment">// Registeres event handler</span>
+    data<span class="token operator">-</span>ref<span class="token operator">=</span><span class="token string">&quot;player-id&quot;</span>     <span class="token comment">// ID of player to control, if undefined all players without an ID are controlled</span>
+    data<span class="token operator">-</span>action<span class="token operator">=</span><span class="token string">&quot;play|pause&quot;</span> <span class="token comment">// Action that is triggered on click (optional)</span>
+    data<span class="token operator">-</span>time<span class="token operator">=</span><span class="token string">&quot;00:10:10.500&quot;</span> <span class="token comment">// Time in simple time format that is selected (optional)</span>
+    data<span class="token operator">-</span>tab<span class="token operator">=</span><span class="token string">&quot;info|chapters|transcripts|share|files|audio&quot;</span> <span class="token comment">// Tab that is selected on interaction (optional)</span>
+  <span class="token operator">&gt;</span>External Element<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+</code></pre></div><h3 id="example">Example</h3> <p><button rel="podlove-web-player" data-ref="example-player" data-action="play" class="button">play</button> <button rel="podlove-web-player" data-ref="example-player" data-action="pause" class="button">pause</button> <button rel="podlove-web-player" data-ref="example-player" data-time="00:10:00" class="button">set time</button> <button rel="podlove-web-player" data-ref="example-player" data-tab="files" class="button">activate files tab</button> <button rel="podlove-web-player" data-ref="example-player" data-action="play" data-time="00:10:00" data-tab="files" class="button">all combined</button></p> <div id="example-player" data-variant="xl" class="player" data-v-cf883154></div></div></div></main></div><div class="global-ui"></div></div>
+    <script src="/podlove-web-player/assets/js/app.291544a6.js" defer></script><script src="/podlove-web-player/assets/js/18.cdeb8c09.js" defer></script>
+  </body>
+</html>
